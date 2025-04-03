@@ -1,0 +1,46 @@
+services:
+  api:
+    build: .
+    container_name: mma_platform_api
+    restart: always
+    ports:
+      - "4000:4000"
+    depends_on:
+      - postgres
+    environment:
+      - NODE_ENV=development
+      - PORT=4000
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=postgres
+      - DB_DATABASE=mma_platform
+      - DB_LOGGING=true
+    volumes:
+      - ./src:/usr/src/app/src
+      - ./node_modules:/usr/src/app/node_modules
+    networks:
+      - mma-network
+
+  postgres:
+    image: postgres:14
+    container_name: mma_platform_postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=mma_platform
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - mma-network
+
+volumes:
+  postgres_data:
+
+networks:
+  mma-network:
+    driver: bridge
