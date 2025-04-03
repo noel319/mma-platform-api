@@ -1,0 +1,113 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Title -->
+  <text x="400" y="30" font-family="Arial" font-size="20" text-anchor="middle" font-weight="bold">MMA Platform Database Schema</text>
+  
+  <!-- Fighter Table -->
+  <rect x="50" y="70" width="200" height="240" fill="#e6f7ff" stroke="#1890ff" stroke-width="2" rx="5" />
+  <text x="150" y="90" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">Fighter</text>
+  <line x1="50" y1="100" x2="250" y2="100" stroke="#1890ff" stroke-width="2" />
+  <text x="55" y="120" font-family="Arial" font-size="12">PK id: UUID</text>
+  <text x="55" y="140" font-family="Arial" font-size="12">first_name: VARCHAR</text>
+  <text x="55" y="160" font-family="Arial" font-size="12">last_name: VARCHAR</text>
+  <text x="55" y="180" font-family="Arial" font-size="12">nickname: VARCHAR</text>
+  <text x="55" y="200" font-family="Arial" font-size="12">date_of_birth: DATE</text>
+  <text x="55" y="220" font-family="Arial" font-size="12">height_cm: INT</text>
+  <text x="55" y="240" font-family="Arial" font-size="12">weight_kg: DECIMAL</text>
+  <text x="55" y="260" font-family="Arial" font-size="12">reach_cm: INT</text>
+  <text x="55" y="280" font-family="Arial" font-size="12">nationality: VARCHAR</text>
+  <text x="55" y="300" font-family="Arial" font-size="12">team: VARCHAR</text>
+  
+  <!-- Fighter Stats Table -->
+  <rect x="300" y="70" width="200" height="180" fill="#f9f0ff" stroke="#722ed1" stroke-width="2" rx="5" />
+  <text x="400" y="90" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">FighterStats</text>
+  <line x1="300" y1="100" x2="500" y2="100" stroke="#722ed1" stroke-width="2" />
+  <text x="305" y="120" font-family="Arial" font-size="12">PK id: UUID</text>
+  <text x="305" y="140" font-family="Arial" font-size="12">FK fighter_id: UUID</text>
+  <text x="305" y="160" font-family="Arial" font-size="12">wins: INT</text>
+  <text x="305" y="180" font-family="Arial" font-size="12">losses: INT</text>
+  <text x="305" y="200" font-family="Arial" font-size="12">draws: INT</text>
+  <text x="305" y="220" font-family="Arial" font-size="12">knockouts: INT</text>
+  <text x="305" y="240" font-family="Arial" font-size="12">submissions: INT</text>
+  
+  <!-- WeightClass Table -->
+  <rect x="550" y="70" width="200" height="120" fill="#f6ffed" stroke="#52c41a" stroke-width="2" rx="5" />
+  <text x="650" y="90" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">WeightClass</text>
+  <line x1="550" y1="100" x2="750" y2="100" stroke="#52c41a" stroke-width="2" />
+  <text x="555" y="120" font-family="Arial" font-size="12">PK id: UUID</text>
+  <text x="555" y="140" font-family="Arial" font-size="12">name: VARCHAR</text>
+  <text x="555" y="160" font-family="Arial" font-size="12">max_weight_kg: DECIMAL</text>
+  <text x="555" y="180" font-family="Arial" font-size="12">min_weight_kg: DECIMAL</text>
+  
+  <!-- Event Table -->
+  <rect x="50" y="350" width="200" height="180" fill="#fff7e6" stroke="#fa8c16" stroke-width="2" rx="5" />
+  <text x="150" y="370" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">Event</text>
+  <line x1="50" y1="380" x2="250" y2="380" stroke="#fa8c16" stroke-width="2" />
+  <text x="55" y="400" font-family="Arial" font-size="12">PK id: UUID</text>
+  <text x="55" y="420" font-family="Arial" font-size="12">name: VARCHAR</text>
+  <text x="55" y="440" font-family="Arial" font-size="12">date: TIMESTAMP</text>
+  <text x="55" y="460" font-family="Arial" font-size="12">venue: VARCHAR</text>
+  <text x="55" y="480" font-family="Arial" font-size="12">city: VARCHAR</text>
+  <text x="55" y="500" font-family="Arial" font-size="12">country: VARCHAR</text>
+  <text x="55" y="520" font-family="Arial" font-size="12">promotion: VARCHAR</text>
+  
+  <!-- Fight Table -->
+  <rect x="300" y="280" width="200" height="240" fill="#fff1f0" stroke="#f5222d" stroke-width="2" rx="5" />
+  <text x="400" y="300" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">Fight</text>
+  <line x1="300" y1="310" x2="500" y2="310" stroke="#f5222d" stroke-width="2" />
+  <text x="305" y="330" font-family="Arial" font-size="12">PK id: UUID</text>
+  <text x="305" y="350" font-family="Arial" font-size="12">FK event_id: UUID</text>
+  <text x="305" y="370" font-family="Arial" font-size="12">FK fighter1_id: UUID</text>
+  <text x="305" y="390" font-family="Arial" font-size="12">FK fighter2_id: UUID</text>
+  <text x="305" y="410" font-family="Arial" font-size="12">FK weight_class_id: UUID</text>
+  <text x="305" y="430" font-family="Arial" font-size="12">is_title_fight: BOOLEAN</text>
+  <text x="305" y="450" font-family="Arial" font-size="12">scheduled_rounds: INT</text>
+  <text x="305" y="470" font-family="Arial" font-size="12">result_type: ENUM</text>
+  <text x="305" y="490" font-family="Arial" font-size="12">FK winner_id: UUID</text>
+  <text x="305" y="510" font-family="Arial" font-size="12">finish_time: TIME</text>
+  
+  <!-- FightDetail Table -->
+  <rect x="550" y="220" width="200" height="160" fill="#f0f5ff" stroke="#2f54eb" stroke-width="2" rx="5" />
+  <text x="650" y="240" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">FightDetail</text>
+  <line x1="550" y1="250" x2="750" y2="250" stroke="#2f54eb" stroke-width="2" />
+  <text x="555" y="270" font-family="Arial" font-size="12">PK id: UUID</text>
+  <text x="555" y="290" font-family="Arial" font-size="12">FK fight_id: UUID</text>
+  <text x="555" y="310" font-family="Arial" font-size="12">FK fighter_id: UUID</text>
+  <text x="555" y="330" font-family="Arial" font-size="12">strikes_landed: INT</text>
+  <text x="555" y="350" font-family="Arial" font-size="12">strikes_attempted: INT</text>
+  <text x="555" y="370" font-family="Arial" font-size="12">takedowns: INT</text>
+  
+  <!-- Ranking Table -->
+  <rect x="550" y="410" width="200" height="140" fill="#fdf2ff" stroke="#eb2f96" stroke-width="2" rx="5" />
+  <text x="650" y="430" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">Ranking</text>
+  <line x1="550" y1="440" x2="750" y2="440" stroke="#eb2f96" stroke-width="2" />
+  <text x="555" y="460" font-family="Arial" font-size="12">PK id: UUID</text>
+  <text x="555" y="480" font-family="Arial" font-size="12">FK fighter_id: UUID</text>
+  <text x="555" y="500" font-family="Arial" font-size="12">FK weight_class_id: UUID</text>
+  <text x="555" y="520" font-family="Arial" font-size="12">position: INT</text>
+  <text x="555" y="540" font-family="Arial" font-size="12">updated_at: TIMESTAMP</text>
+  
+  <!-- Relationship Lines -->
+  <!-- Fighter to FighterStats -->
+  <line x1="250" y1="115" x2="300" y2="140" stroke="#000" stroke-width="1" marker-end="url(#arrowhead)" />
+  <!-- Fighter to Fight (fighter1) -->
+  <line x1="160" y1="310" x2="300" y2="370" stroke="#000" stroke-width="1" marker-end="url(#arrowhead)" />
+  <!-- Fighter to Fight (fighter2) -->
+  <line x1="170" y1="310" x2="300" y2="390" stroke="#000" stroke-width="1" marker-end="url(#arrowhead)" />
+  <!-- Fighter to Ranking -->
+  <line x1="250" y1="200" x2="550" y2="480" stroke="#000" stroke-width="1" marker-end="url(#arrowhead)" />
+  <!-- WeightClass to Fight -->
+  <line x1="650" y1="190" x2="500" y2="410" stroke="#000" stroke-width="1" marker-end="url(#arrowhead)" />
+  <!-- WeightClass to Ranking -->
+  <line x1="650" y1="190" x2="650" y2="410" stroke="#000" stroke-width="1" marker-end="url(#arrowhead)" />
+  <!-- Event to Fight -->
+  <line x1="250" y1="400" x2="300" y2="350" stroke="#000" stroke-width="1" marker-end="url(#arrowhead)" />
+  <!-- Fight to FightDetail -->
+  <line x1="500" y1="330" x2="550" y2="290" stroke="#000" stroke-width="1" marker-end="url(#arrowhead)" />
+  
+  <!-- Arrow Definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#000" />
+    </marker>
+  </defs>
+</svg>

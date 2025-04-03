@@ -22,6 +22,37 @@ The database schema includes the following entities:
 - **FightDetail**: Detailed fight statistics
 - **Ranking**: Fighter rankings within weight classes
 
+### Entity Relationship Diagram
+
+Below is the Entity Relationship Diagram (ERD) for the MMA Platform database:
+
+![MMA Platform Database Schema](./dist/erd-diagram.svg)
+
+## Quick Start Guide
+
+Follow these steps to get the MMA Platform up and running:
+
+```bash
+# Clone the repository
+git clone https://github.com/noel319/mma-platform-api.git
+cd mma-platform-api
+
+# Build the Docker containers
+make build
+
+# Start the application
+make run
+
+# Initialize the database schema
+make init-db
+
+# Seed the database with initial data
+make seed
+
+# Access the GraphQL playground
+# Open http://localhost:4000/graphql in your browser
+```
+
 ## Technology Stack
 
 - **Node.js** with TypeScript
@@ -44,7 +75,7 @@ The database schema includes the following entities:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/mma-platform-api.git
+   git clone https://github.com/noel319/mma-platform-api.git
    cd mma-platform-api
    ```
 
@@ -87,6 +118,39 @@ The database schema includes the following entities:
   ```bash
   make test
   ```
+
+### Common Makefile Commands
+
+The project includes a Makefile with the following useful commands:
+
+```bash
+# Build the Docker containers
+make build
+
+# Start the application
+make run
+
+# Stop the application
+make stop
+
+# Run tests
+make test
+
+# Run linting
+make lint
+
+# View logs
+make logs
+
+# Access PostgreSQL command line
+make psql
+
+# Clean up containers and volumes
+make clean
+
+# Check container status
+make status
+```
 
 ## API Documentation
 
@@ -210,6 +274,29 @@ mutation {
     }
   }
 }
+```
+
+## Project Structure
+
+The project follows a modular, feature-based organization:
+
+```
+mma-platform-api/
+├── src/                       # Source code directory
+│   ├── entities/              # TypeORM entity definitions
+│   ├── inputs/                # GraphQL input type definitions
+│   ├── resolvers/             # GraphQL resolvers
+│   ├── types/                 # TypeScript type definitions
+│   ├── config.ts              # Configuration settings
+│   ├── index.ts               # Application entry point
+│   └── seed.ts                # Database seeding script
+├── docs/                      # Documentation files
+│   └── mma-platform-erd.png   # Database schema diagram
+├── Dockerfile                 # Docker image definition
+├── docker-compose.yml         # Docker Compose configuration
+├── init.sql                   # Initial SQL schema for database
+├── Makefile                   # Make commands for common tasks
+└── [Other configuration files]
 ```
 
 ## Architecture
