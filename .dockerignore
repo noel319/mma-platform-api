@@ -1,0 +1,12 @@
+node_modules
+npm-debug.log
+dist
+.git
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.github
+.vscode
+coverage
+docs
